@@ -1,0 +1,249 @@
+:root {
+  --clr-primary-violet-400: hsl(257, 40%, 49%);
+  --clr-primary-magenta-400: hsl(300, 69%, 71%);
+
+  --clr-neutral-100: hsl(0, 0%, 100%);
+
+  --fs-regular: 1rem;
+  --fs-regular-lg: 1.1rem;
+  --fs-headings: 1.5rem;
+  --fs-headings-lg: 2.5rem;
+
+  --fw-regular: 400;
+  --fw-bold: 600;
+
+  --ff-body: "Open Sans", sans-serif;
+  --ff-headings: "Poppins", sans-serif;
+}
+
+/* CSS Reset */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* General Styling */
+body {
+  background-color: var(--clr-primary-violet-400);
+  background-image: url(images/bg-mobile.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  font-family: var(--ff-body);
+  font-size: var(--fs-regular);
+  font-weight: var(--fw-regular);
+  color: var(--clr-neutral-100);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--ff-headings);
+  font-weight: var(--fw-bold);
+}
+
+h1 {
+  line-height: 1.5;
+  font-size: var(--fs-headings);
+}
+
+.container {
+  width: min(100% - 5rem, 1300px);
+  margin: 2rem auto;
+}
+
+/* Header */
+/* General Styling  */
+header {
+  margin-bottom: 4rem;
+}
+/* Logo */
+.company-logo {
+  width: min(34.6%, 220px);
+}
+
+/* Layout */
+/* Main Grid */
+.call-to-action {
+  display: grid;
+  row-gap: 3.5rem;
+}
+
+/* Content Section */
+.call-to-action__content {
+  display: grid;
+  row-gap: 1.375rem;
+}
+
+.call-to-action__content h1,
+.call-to-action__content p {
+  text-align: center;
+}
+
+.call-to-action__register {
+  cursor: pointer;
+
+  text-decoration: none;
+  margin-inline: auto;
+  background-color: var(--clr-neutral-100);
+  padding: 0.875rem 4.5rem;
+  border-radius: 2rem;
+
+  font-size: 0.775rem;
+  font-family: var(--ff-headings);
+  font-weight: var(--fw-regular);
+  color: var(--clr-primary-violet-400);
+
+  box-shadow: 0px 4px 7px hsla(0, 0%, 0%, 0.3);
+  transition: 250ms all ease-in-out;
+}
+
+.call-to-action__register:hover,
+.call-to-action__register:focus {
+  color: var(--clr-neutral-100);
+  background-color: var(--clr-primary-magenta-400);
+}
+
+/* Footer */
+footer {
+  margin-top: 3.5rem;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1rem;
+}
+
+.social-icons a {
+  color: inherit;
+  text-decoration: none;
+  transition: 250ms color ease-in-out;
+}
+
+.social-icons a:hover,
+.social-icons a:focus {
+  color: var(--clr-primary-magenta-400);
+}
+
+/* Media Queries */
+@media (min-width: 650px) {
+  /* General Styling */
+  body {
+    background-image: url(images/bg-desktop.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  h1 {
+    font-size: var(--fs-headings-lg);
+  }
+
+  .container {
+    margin: 3.5rem auto 2rem;
+  }
+  /* Grid */
+  .call-to-action {
+    grid-template-columns: 59% 41%;
+  }
+
+  /* Image Section */
+  .call-to-action__images {
+    padding-top: 1rem;
+  }
+
+  /* Content Section */
+  .call-to-action__content {
+    align-content: start;
+    padding-top: 4rem;
+  }
+  .call-to-action__content h1,
+  .call-to-action__content p {
+    text-align: left;
+  }
+
+  .call-to-action__register {
+    margin-left: 0;
+    margin-right: auto;
+    margin-top: 0.5rem;
+
+    font-size: var(--fs-regular-lg);
+    padding: 0.825rem 4rem;
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 3rem;
+  }
+  .social-icons {
+    justify-content: flex-end;
+  }
+}
